@@ -4,18 +4,23 @@ import java.util.Scanner;
 public class DoublyLinkedList {
 
     Node head;
-    int length = 0;
+    int length;
+
+    public DoublyLinkedList() {
+        this.head = null;
+        this.length = 0;
+    }
 
     class Node {
 
-        int data;
         Node next;
         Node prev;
+        int data;
 
         Node(int data) {
-            this.data = data;
             this.next = null;
             this.prev = null;
+            this.data = data;
         }
     }
 
@@ -32,7 +37,7 @@ public class DoublyLinkedList {
     }
 
     public void insertAtEnd(int data) {
-
+        length++;
         if (head == null) {
             head = new Node(data);
             return;
@@ -47,46 +52,44 @@ public class DoublyLinkedList {
     }
 
     public void insertAtPos(int data, int pos) {
-        if (pos < 0 || pos > length) {
+        if (pos <= 0 || pos > length) {
+            System.out.println("Invalid position");
             return;
         }
-        if (pos == 0) {
+        length++;
+        if (pos == 1) {
             insertAtBeginning(data);
-        }
-        if (pos == length) {
+            return;
+        } else if (pos == length) {
             insertAtEnd(data);
+            return;
         }
         Node currNode = head;
-        for (int i = 1; i < pos - 1; i++) {
+        for (int i = 0; i < pos - 1; i++) {
             currNode = currNode.next;
         }
         Node newNode = new Node(data);
         newNode.next = currNode.next;
+        newNode.prev = currNode;
         newNode.next.prev = newNode;
         currNode.next = newNode;
-        newNode.prev = currNode;
-    }
 
-    public void printList() {
-        if (head == null) {
-            System.out.println("List empty..");
-            return;
+    }
+    public void printList(){
+        Node currNode=head;
+        while(currNode!=null){
+            System.out.print(c)
         }
-        Node currNode = head;
-        while (currNode != null) {
-            System.out.print(currNode.data + "<->");
-            currNode = currNode.next;
-        }
-        System.out.println("null");
     }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        DoublyLinkedList list = new DoublyLinkedList();
-        int x = 0, data = 0;
+
         boolean i = true;
         while (i) {
             System.out.print("Enter the following choices:\n1)Insert at beginning\n2)Insert at end\n3)Insert at position\n4)display\n8)exit\nEnter:");
+            DoublyLinkedList list = new DoublyLinkedList();
+            int x = 0, data = 0;
             x = sc.nextInt();
             switch (x) {
                 case 1:
