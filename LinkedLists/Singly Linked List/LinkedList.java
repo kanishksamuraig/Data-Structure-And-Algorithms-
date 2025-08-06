@@ -70,7 +70,8 @@ public class LinkedList {
 
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
-        Node s = new Node(10);
+        // Node s = new Node(10);
+        //You can add yuo
         list.insertAtBeginning(1);
         list.insertAtEnd(2);
         list.insertAtEnd(3);
