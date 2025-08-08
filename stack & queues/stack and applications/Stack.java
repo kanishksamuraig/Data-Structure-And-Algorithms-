@@ -4,30 +4,34 @@ import java.util.Scanner;
 public class Stack {
 
     Node head;
+    int size;
 
     Stack() {
-        this.head = null;
+        head = null;
+        size = 0;
     }
 
     class Node {
 
-        Node next;
         int data;
+        Node next;
 
         Node(int data) {
-            this.next = null;
             this.data = data;
+            this.next = null;
         }
     }
 
-    public Boolean isEmpty() {
+    public boolean isEmpty() {
         return head == null;
     }
 
     public void push(int data) {
         Node newNode = new Node(data);
+        size++;
         if (isEmpty()) {
             head = newNode;
+
             return;
         }
         newNode.next = head;
@@ -41,27 +45,23 @@ public class Stack {
         int data = head.data;
         head = head.next;
         return data;
-
     }
 
     public int peek() {
         if (isEmpty()) {
             return -1;
         }
-        return head.data;
+        int data = head.data;
+        return data;
     }
 
     public void display() {
-        if (isEmpty()) {
-            System.out.println("Stack empty!");
-            return;
-        }
         Node currNode = head;
         while (currNode != null) {
             System.out.print(currNode.data + " ");
             currNode = currNode.next;
         }
-        System.out.println();
+
     }
 
     public static void main(String args[]) {
@@ -93,6 +93,7 @@ public class Stack {
                 case 5:
                     System.out.println("exiting...");
                     i = false;
+                    break;
                 default:
                     System.out.println("enter correct choice...");
                     break;
