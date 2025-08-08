@@ -1,12 +1,13 @@
 
 import java.util.Scanner;
+//stack using linked list mate.
 
-public class Stack {
+public class StackLL {
 
     Node head;
     int size;
 
-    Stack() {
+    StackLL() {
         head = null;
         size = 0;
     }
@@ -66,7 +67,7 @@ public class Stack {
 
     public static void main(String args[]) {
         Scanner sc = new Scanner(System.in);
-        Stack stack = new Stack();
+        StackLL stack = new StackLL();
         int x = 0, data = 0;
         boolean i = true;
         while (i) {
