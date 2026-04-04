@@ -1,2 +1,2 @@
-**Crystal meth **
+**Crystal meth**
 _this is not meth_
