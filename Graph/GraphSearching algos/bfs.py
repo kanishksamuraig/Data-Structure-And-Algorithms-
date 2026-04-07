@@ -58,6 +58,9 @@ class Graphmat:
             path.append(destination)
             destination=parent[destination]
         print("path:",*path[::-1])
+
+
+
 n=int(input())
 graph=Graphmat(n)
 while True:
