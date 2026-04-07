@@ -1,13 +1,46 @@
-def dfs(graph,visited,parent,start):
-    visited[start]=True
-    for neighbour in range(len(graph)):
-        if graph[start][neighbour]==1 and not visited[neighbour]:
-            parent[neighbour]=start
-            dfs(graph,visited,parent,neighbour)
-n=int(input())
-graph=[list(map(int,input().split())) for _ in range(n)]
-source=int(input("Source Node"))
-visited=[False for _ in range(n)]
-parent=[-1 for _ in range(n)]
-dfs(graph,visited,parent,source)
-print(parent)
+#dfs using adjacency list
+
+def dfsinit(graph,parent,visited,source):
+    parent=[-1 for i in range(len(graph))]
+    visited=[False for i in range(len(graph))]
+    dfs(graph,parent,visited,source)
+    return (parent,visited)
+
+def dfs(graph,parent,visited,source):
+    visited[source]=True
+    for neighbour in graph[source]:
+        if not visited[neighbour]:
+            parent[neighbour]=source
+            dfs(graph,parent,visited,neighbour)
+
+def path(parent,destination):
+    pathlist = []
+    pathlist.append(destination)
+    node=destination
+    while parent[node] != -1:
+        node = parent[node]
+        pathlist.append(node)
+    return pathlist[::-1]
+    
+parent,visited=[],[]
+n = int(input("Enter the number of nodes in the graph:"))
+
+graph = [list(map(int,input().split())) for _ in range(n)]
+
+print(parent,visited)
+
+source = int(input("Enter the starting vertex:"))
+
+parent,visited = dfsinit(graph,parent,visited,source)
+
+print("Node\tParent\tVisited")
+
+for i in range(n):
+    print(f"{i}\t{parent[i]}\t{visited[i]}")
+dest=int(input("Enter the destination:"))
+print(path(parent,dest))
+
+
+
+
+
