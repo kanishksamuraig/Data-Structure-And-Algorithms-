@@ -57,13 +57,11 @@ def bfslevel(graph,source):
         node=parent[node]
         path.append(node)
     print(path[::-1])
-
 n=int(input())
 graph=[list(map(int,input().split())) for _ in range(n)]
 source=int(input("Source Node"))
 breadthfirstsearch(graph,source)
 bfslevel(graph,source)
-
 
 
 

@@ -1,6 +1,7 @@
 class Graphmat:
-    def __init__(self,N : int):
-        self.graph=list([0 for _ in range(N)] for _ in range(n))
+    def __init__(self,N):
+        self.graph=list([0 for _ in range(N)] for _ in range(N))
+        self.nodes=N
     def addEdges(self,edges: list[int]):
         for edge in edges:
             u=edge[0]
@@ -16,6 +17,15 @@ class Graphmat:
     def display(self):
         for row in self.graph:
             print(*row)
+    def neighbours(self,node):
+        l=[]
+        for i in range(self.nodes):
+            if self.graph[node][i]==1:
+                l.append(i)
+        return l
+
+
+
 
 n=int(input())
 graph=Graphmat(n)
@@ -27,3 +37,4 @@ while True:
     else:
         break
 graph.display()
+print(graph.neighbours(1))
