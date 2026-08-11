@@ -1,12 +1,12 @@
 
 #algo
-#perform heapify on the array
-#after performing heapify perform the deletion operation instead of deallocating the mem location at the end, place that value
+#perform heapifi on the array
+#after performing heapifi perform the deletion operation instead of deallocating the mem location at the end, place that value
 
 
 #For an ascending order use maxheap and for desc use minheap
 
-def heapify(arr:list[int]):
+def heapifi(arr:list[int]):
     for i in range(len(arr)-1,-1,-1):
         curr=i
         while True:
@@ -47,6 +47,6 @@ def sortbydel(arr):
             arr[large],arr[curr]=arr[curr],arr[large]
             curr=large
 arr=[45, 12, 88, 3, 22, 71, 12, 9, 105, 34, 50, 6, 88, 19]
-heapify(arr)
+heapifi(arr)
 sortbydel(arr)
 print(arr)
